@@ -4,6 +4,11 @@ public class Nodo {
     private int info;
     private Nodo sig;
 
+    public Nodo(int info) {
+        this.info = info;
+        this.sig = null;
+    }
+
     public Nodo(int info, Nodo sig) {
         this.info = info;
         this.sig = sig;

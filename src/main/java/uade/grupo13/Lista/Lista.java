@@ -11,8 +11,15 @@ public class Lista implements ILista{
         this.size = 0;
     }
 
+    public Nodo getInicio() {
+        return inicio;
+    }
+
+    public void setInicio(Nodo inicio) {
+        this.inicio = inicio;
+    }
     public void add(int value) {
-        Nodo nuevo = new Nodo(value, null);
+        Nodo nuevo = new Nodo(value);
 
         if (inicio == null) {
             inicio = nuevo;
@@ -47,7 +54,7 @@ public class Lista implements ILista{
 
     public void insert(int value, int position) {
         if (position >= 0 && position <= size) {
-            Nodo nuevo = new Nodo(value, null);
+            Nodo nuevo = new Nodo(value);
             if (position == 0) {
                 nuevo.setSig(inicio);
                 inicio = nuevo;
