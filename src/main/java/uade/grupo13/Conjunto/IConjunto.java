@@ -6,4 +6,5 @@ public interface IConjunto {
     boolean pertenece(int valor);
     int cardinal();
     boolean esVacio();
+
 }

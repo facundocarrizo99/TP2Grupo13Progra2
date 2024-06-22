@@ -13,6 +13,12 @@ public class NodoArbol {
         this.hijoDer = hijoDer;
     }
 
+    public NodoArbol() {
+        this.info = 0;
+        this.hijoIzq = null;
+        this.hijoDer = null;
+    }
+
     public int getInfo() {
         return info;
     }

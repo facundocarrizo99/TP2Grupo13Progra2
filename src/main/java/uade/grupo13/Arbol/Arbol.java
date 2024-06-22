@@ -9,12 +9,12 @@ public class Arbol implements IArbol {
         return this.raiz.getInfo();
     }
 
-    public IArbol hijoDer(int n) {
-        return new Arbol(this.raiz.getHijoDer());
+    public IArbol hijoDer() {
+        return raiz.getHijoDer();
     }
 
-    public IArbol hijoIzq(int n) {
-        return new Arbol(this.raiz.getHijoIzq());
+    public IArbol hijoIzq() {
+        return raiz.getHijoIzq();
     }
 
     public boolean estaVacio() {
@@ -26,31 +26,25 @@ public class Arbol implements IArbol {
     }
 
     public void agregarElem(int n) {
-        this.raiz = agregarElemRec(n, this.raiz);
-    }
-
-    private NodoArbol agregarElemRec(int n, NodoArbol raiz) {
         if (raiz == null) {
-            return new NodoArbol(n, null, null);
+            raiz = new NodoArbol(n, new Arbol(), new Arbol());
         } else if (n < raiz.getInfo()) {
-            raiz.setHijoIzq(agregarElemRec(n, raiz.getHijoIzq()));
+            raiz.getHijoIzq().agregarElem(n);
         } else if (n > raiz.getInfo()) {
-            raiz.setHijoDer(agregarElemRec(n, raiz.getHijoDer()));
+            raiz.getHijoDer().agregarElem(n);
         }
-        return raiz;
     }
 
     public void eliminarElem(int n) {
         if (raiz != null) {
-            65
             if (raiz.getInfo() == n && raiz.getHijoIzq().estaVacio() &&
                     raiz.getHijoDer().estaVacio()) {
                 raiz = null;
             } else if (raiz.getInfo() == n && !raiz.getHijoIzq().estaVacio()) {
-                raiz.getInfo() = this.mayor(raiz.getHijoIzq());
+                raiz.setInfo(this.mayor(raiz.getHijoIzq()));
                 raiz.getHijoIzq().eliminarElem(raiz.getInfo());
             } else if (raiz.getInfo() == n && raiz.getHijoIzq().estaVacio()) {
-                raiz.getInfo() = this.menor(raiz.getHijoDer());
+                raiz.setInfo(this.menor(raiz.getHijoDer()));
                 raiz.getHijoDer().eliminarElem(raiz.getInfo());
             } else if (raiz.getInfo() < n) {
                 raiz.getHijoDer().eliminarElem(n);
@@ -60,17 +54,17 @@ public class Arbol implements IArbol {
         }
     }
 
-    private int mayor(NodoArbol a) {
-        if (a.getHijoDer().estaVacio())
-            return a.getInfo();
+    private int mayor(IArbol a) {
+        if (a.hijoDer().estaVacio())
+            return a.raiz();
         else
-            return mayor(a.getHijoDer());
+            return mayor(a.hijoDer());
     }
 
-    private int menor(NodoArbol a) {
-        if (a.getHijoIzq().estaVacio())
-            return a.getInfo();
+    private int menor(IArbol a) {
+        if (a.hijoIzq().estaVacio())
+            return a.raiz();
         else
-            return menor(a.getHijoIzq());
+            return menor(a.hijoIzq());
     }
 }
