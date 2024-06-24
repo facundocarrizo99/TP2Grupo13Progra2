@@ -1,5 +1,6 @@
 package uade.grupo13.Diccionario;
 
+import uade.grupo13.Lista.Lista;
 import uade.grupo13.Nodo.NodoClave;
 
 public class Diccionario implements IDiccionario{
@@ -83,5 +84,45 @@ public class Diccionario implements IDiccionario{
             aux = aux.getSig();
         }
         return lista;
+    }
+
+    //          Metodo Ejercicio Diccionarios           //
+
+    //  Devuelve en una lista las claves que sean pares de un diccionario dado  //
+    public static Lista clavesPares (Diccionario dic) {
+        if (dic.inicio == null){// Si envian un diccionario vacio sale del metodo
+            return new Lista();
+        }
+        //  Inicializa lista y puntero  //
+        Lista lista = new Lista();
+        NodoClave aux = dic.inicio;
+
+        //  Recorrer y listar las claves pares  //
+         while (aux != null) {
+             if (aux.getClave() % 2 == 0){
+                 lista.add(aux.getClave());
+             }
+             aux = aux.getSig();
+         }
+        return lista; // se devuelve la lista, puede estar inicializada y vacia //
+    }
+
+    //  Devuelve una Lista con las valores mayores a un "n" dado de un diccionario  //
+    public static Lista valoresMayoresA(int n, Diccionario dic){
+        if (dic.inicio == null){// Si envian un diccionario vacio sale del metodo
+            return new Lista();
+        }
+        //  Inicializa lista y puntero  //
+        Lista lista = new Lista();
+        NodoClave aux = dic.inicio;
+
+        //  Recorrer y listar valores mayores a n  //
+        while (aux != null){
+            if (aux.getValor() > n) {
+                lista.add(aux.getValor());
+            }
+            aux = aux.getSig();
+        }
+        return lista;  // se devuelve la lista, puede estar inicializada y vacia //
     }
 }

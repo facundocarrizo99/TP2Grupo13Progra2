@@ -1,13 +1,15 @@
 package uade.grupo13;
 
 import uade.grupo13.Conjunto.*;
+import uade.grupo13.Diccionario.Diccionario;
+import uade.grupo13.Lista.Lista;
 import uade.grupo13.Nodo.Nodo;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //Ejercicio de conjunto.
+        //          Ejercicios de conjunto          //
         Conjunto conjunto1 = new Conjunto();
         Conjunto conjunto2 = new Conjunto();
         conjunto1.agregar(1);
@@ -40,7 +42,33 @@ public class Main {
             aux2 = aux2.getSig();
         }
 
+        //          Ejercicios de Diccionarios          //
+
+        /** Generamos un Diccionario para hacer las pruebas
+         *  con claves del 1 al 20 y
+         *  con valores del 10 al 200 respectivamente (De 10 en 10)
+         */
+        Diccionario diccPrueba = new Diccionario();
+        for (int i = 1; i <= 20; i++) {
+            diccPrueba.agregar(i,i * 10);
+        }
+
+        // creamos una lista con las claves pares para probar el metodo //
+        Lista clavesPares = Diccionario.clavesPares(diccPrueba);
+        System.out.println("/n Lista de las claves Pares: ");
+        for (int i = 0; i < clavesPares.size(); i ++) {
+            System.out.println("Clave: " + clavesPares.get(i));
+        }
+
+        // creamos una lista con los valores mayores a 50  //
+        Lista listaPrueba = Diccionario.valoresMayoresA(50, diccPrueba);
+        System.out.println("/n Lista de los valores mayores a 50: ");
+        for (int i = 0; i < listaPrueba.size(); i ++) {
+            System.out.println("Valor " + i + ": "  + clavesPares.get(i));
+        }
     }
+
+    //              Metodos de Conjuntos                //
     public static Boolean iguales(Conjunto conjunto1,Conjunto conjunto2){
         if(conjunto1.cardinal()!= conjunto2.cardinal()){
             return false;

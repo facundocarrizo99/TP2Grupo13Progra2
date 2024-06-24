@@ -18,6 +18,7 @@ public class Lista implements ILista{
     public void setInicio(Nodo inicio) {
         this.inicio = inicio;
     }
+
     public void add(int value) {
         Nodo nuevo = new Nodo(value);
 
@@ -30,6 +31,7 @@ public class Lista implements ILista{
             }
             aux.setSig(nuevo);
         }
+
         size++;
     }
 
