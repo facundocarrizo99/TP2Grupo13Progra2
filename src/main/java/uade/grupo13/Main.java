@@ -55,16 +55,16 @@ public class Main {
 
         // creamos una lista con las claves pares para probar el metodo //
         Lista clavesPares = Diccionario.clavesPares(diccPrueba);
-        System.out.println("/n Lista de las claves Pares: ");
+        System.out.println("\n Lista de las claves Pares: ");
         for (int i = 0; i < clavesPares.size(); i ++) {
             System.out.println("Clave: " + clavesPares.get(i));
         }
 
         // creamos una lista con los valores mayores a 50  //
         Lista listaPrueba = Diccionario.valoresMayoresA(50, diccPrueba);
-        System.out.println("/n Lista de los valores mayores a 50: ");
+        System.out.println("\n Lista de los valores mayores a 50: ");
         for (int i = 0; i < listaPrueba.size(); i ++) {
-            System.out.println("Valor " + i + ": "  + clavesPares.get(i));
+            System.out.println("Valor " + i + ": "  + listaPrueba.get(i));
         }
     }
 
