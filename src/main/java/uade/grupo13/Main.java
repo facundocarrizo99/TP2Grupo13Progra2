@@ -1,5 +1,6 @@
 package uade.grupo13;
 
+import uade.grupo13.Arbol.Arbol;
 import uade.grupo13.Conjunto.*;
 import uade.grupo13.Diccionario.Diccionario;
 import uade.grupo13.Lista.Lista;
@@ -66,6 +67,35 @@ public class Main {
         for (int i = 0; i < listaPrueba.size(); i ++) {
             System.out.println("Valor " + i + ": "  + listaPrueba.get(i));
         }
+
+        //          Ejercicios de Diccionarios Multiples            //
+        // Mati lucete vos aca mmg <3
+
+        //          Ejercicio de arboles            //
+
+        // Creamos un arbol para las pruebas de los metodos  //
+        Arbol arbol = new Arbol();
+        arbol.inicializar();
+        arbol.agregarElem(10);//raiz
+        arbol.agregarElem(15);//primer hijo derecho
+        arbol.agregarElem(5);//primer hijo izquierdo
+        arbol.agregarElem(1);//hoja izquierda, hijo izquierdo
+        arbol.agregarElem(7);//hoja derecha, hijo derecho
+        arbol.agregarElem(12);//hoja izquierda, hijo derecho
+        arbol.agregarElem(20);//hoja derecha, hijo derecho
+        //  Creamos una lista con las hojas del arbol creado  //
+        Lista listaHojas = Arbol.listaHojas(arbol);
+        System.out.println("\nLista de hojas de un Arbol");
+        for (int i = 0; i < listaHojas.size(); i++){
+            System.out.println("hoja #"+i+": "+ listaHojas.get(i));
+        }
+        // Creamos una lista para calcular los mayores a 9 //
+        Lista listaM = Arbol.mayoresA(9, arbol);
+        System.out.println("\nLos nodos del arbol mayores a 9 son:");
+        for (int i = 0; i < listaM.size(); i++) {
+            System.out.println(listaM.get(i));
+        }
+
     }
 
     //              Metodos de Conjuntos                //
